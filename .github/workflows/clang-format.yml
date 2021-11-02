@@ -1,5 +1,11 @@
 name: Clang formater workflow
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   changedfiles:
@@ -16,8 +22,8 @@ jobs:
         id: changes
         # Set outputs using the command.
         run: |
-          echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
-          echo "::set-output name=ts::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep '.*\.cpp$\|.*\.h$' | xargs)"
+          echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.push.before }} ${{ github.event.push.after }} | xargs)"
+          echo "::set-output name=ts::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.push.before }} ${{ github.event.push.after }} | grep '.*\.cpp$\|.*\.h$' | xargs)"
   build:
     name: Print files
     runs-on: ubuntu-latest
