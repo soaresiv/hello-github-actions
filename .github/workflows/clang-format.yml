@@ -1,5 +1,5 @@
 name: Clang formater workflow
-on: push
+on: pull_request
 
 jobs:
   changedfiles:
