@@ -17,6 +17,7 @@ jobs:
         shell: bash
         # Set outputs using the command.
         run: |
+          echo "$GITHUB_CONTEXT"
           echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
           echo "::set-output name=ts::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep '.*\.cpp$\|.*\.h$' | xargs)"
   build:
