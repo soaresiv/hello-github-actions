@@ -8,9 +8,7 @@ function log_() {
 
 
 function install_clang(){
-    log_ "Installing clang-format-$CLANG_FORMAT_VERSION"
-    deb http://apt.llvm.org/bullseye/ llvm-toolchain-bullseye-13 main
-    deb-src http://apt.llvm.org/bullseye/ llvm-toolchain-bullseye-13 main
+    log_ "Installing clang-format-$CLANG_FORMAT_VERSION"    
     apt-get update && apt-get install -y --no-install-recommends clang-format-"$CLANG_FORMAT_VERSION"
 }
 
