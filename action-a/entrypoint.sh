@@ -15,7 +15,7 @@ function install_clang(){
 
 function clang_file() {
 		
-    local files=$(find . -regex '.*\.\(cpp\|hpp\|h\|cc\|cxx\)'  | tr '\n' ' ')
+    local files=$(find ${1} -regex '.*\.\(cpp\|hpp\|h\|cc\|cxx\)'  | tr '\n' ' ')
 
     log_ "Run running clang"
     
@@ -32,6 +32,6 @@ cd ${GITHUB_WORKSPACE}
 
 install_clang
 
-clang_file || exit_code=$?
+clang_file ${GITHUB_WORKSPACE} || exit_code=$?
 
 exit $exit_code 
