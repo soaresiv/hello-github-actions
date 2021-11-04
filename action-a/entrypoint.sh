@@ -15,7 +15,7 @@ function install_clang(){
 
 function clang_file() {
 		
-    local files=$(find ./src -regex '.*\.\(cpp\|hpp\|h\|cc\|cxx\)'  | tr '\n' ' ')
+    local files=$(find . -regex '.*\.\(cpp\|hpp\|h\|cc\|cxx\)'  | tr '\n' ' ')
 
     log_ "Run running clang"
     
