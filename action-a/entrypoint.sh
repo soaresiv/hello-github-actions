@@ -74,7 +74,7 @@ function parse_opts () {
     done
 }
 
-parse_opts "${@}"
+parse_opts ${@}
 
 
 # If the path is not defined, default to the current
