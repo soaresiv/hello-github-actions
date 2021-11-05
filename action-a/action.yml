@@ -23,10 +23,10 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - "--workplace ${{ inputs.workplace }}"
-    - "--fallback ${{ inputs.fallback }}"
-    - "--clangsetup ${{ inputs.clangsetup }}"
-    - "--apply ${{ inputs.apply }}"
+    - --workplace ${{ inputs.workplace }}
+    - --fallback ${{ inputs.fallback }}
+    - --clangsetup ${{ inputs.clangsetup }}
+    - --apply ${{ inputs.apply }}
 
 branding:
   icon: "mic"
